@@ -56,6 +56,7 @@ function mostrarPregunta() {
   $('num-pregunta').textContent = indice + 1;
   $('puntos').textContent = puntos;
   $('pregunta').textContent = p.pregunta;
+  renderMedia(p);
   botones.forEach((b, i) => {
     b.textContent = p.opciones[i] ?? '';
     b.hidden = p.opciones[i] === undefined;
@@ -65,13 +66,55 @@ function mostrarPregunta() {
   iniciarTemporizador();
 }
 
+// tipo: texto | imagen | video | audio. efecto (solo imagen): blur | silueta
+function renderMedia(p) {
+  const cont = $('media');
+  cont.replaceChildren();
+  if (!p.media || p.tipo === 'texto') return;
+  let el;
+  if (p.tipo === 'imagen') {
+    el = document.createElement('img');
+    el.src = p.media;
+    el.alt = '';
+    if (p.efecto === 'silueta') el.classList.add('silueta');
+    if (p.efecto === 'blur') el.style.filter = 'blur(var(--blur, 20px))';
+  } else {
+    el = document.createElement(p.tipo);
+    el.src = p.media;
+    el.controls = true;
+    el.autoplay = true;
+    el.playsInline = true;
+    if (p.tipo === 'video') el.loop = true;
+  }
+  cont.append(el);
+}
+
+function actualizarBlur() {
+  const img = $('media').querySelector('img');
+  if (img && preguntas[indice].efecto === 'blur') {
+    img.style.setProperty('--blur', `${Math.round((restante / SEGUNDOS_POR_PREGUNTA) * 20)}px`);
+  }
+}
+
+function revelarMedia() {
+  const el = $('media').firstElementChild;
+  if (el && el.tagName === 'IMG') {
+    el.classList.remove('silueta');
+    el.style.filter = 'none';
+  }
+  const m = $('media').querySelector('audio, video');
+  if (m) m.pause();
+}
+
 function iniciarTemporizador() {
   clearInterval(timer);
   restante = SEGUNDOS_POR_PREGUNTA;
   $('tiempo').textContent = restante;
+  actualizarBlur();
   timer = setInterval(() => {
     restante--;
     $('tiempo').textContent = restante;
+    actualizarBlur();
     if (restante <= 0) responder(-1);
   }, 1000);
 }
@@ -80,6 +123,7 @@ function responder(elegida) {
   if (bloqueado) return;
   bloqueado = true;
   clearInterval(timer);
+  revelarMedia();
   const correcta = preguntas[indice].correcta;
   if (elegida === correcta) {
     puntos += PUNTOS_BASE + Math.round((restante / SEGUNDOS_POR_PREGUNTA) * PUNTOS_BONUS_MAX);
