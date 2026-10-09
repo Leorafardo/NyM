@@ -1,6 +1,6 @@
 // Configura aquí tu bin de JSONBin (el bin debe contener inicialmente: {"ranking": []})
-const JSONBIN_BIN_ID = 'TU_BIN_ID';
-const JSONBIN_API_KEY = 'TU_X_MASTER_KEY';
+const JSONBIN_BIN_ID = '6ac8944aac6210605a21c17f';
+const JSONBIN_API_KEY = '$2a$10$EbeObdWYgrqfGyQw.2zVBu90jubK1/Kt75F04Dbmf2GpX3hr7ZCvW';
 const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
 
 const MAX_PREGUNTAS = 20;
