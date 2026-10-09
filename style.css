@@ -1,11 +1,18 @@
 * { box-sizing: border-box; }
 
-body {
+html, body {
   margin: 0;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   background: #1e2235;
   color: #fff;
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
   display: flex;
   justify-content: center;
 }
@@ -13,26 +20,33 @@ body {
 .app {
   width: 100%;
   max-width: 600px;
-  padding: 16px;
+  height: 100%;
+  padding: max(2vh, 8px) max(3vw, 8px);
+  padding-bottom: max(2vh, env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 [hidden] { display: none !important; }
 
 .barra {
+  flex: 0 0 auto;
   display: flex;
   justify-content: space-between;
   gap: 8px;
-  font-size: 1rem;
+  font-size: clamp(0.8rem, 2.2vh, 1rem);
   background: #2d3250;
-  padding: 12px 14px;
+  padding: 1.2vh 3vw;
   border-radius: 12px;
 }
 
-#pantalla-juego {
-  height: calc(100dvh - 32px);
+#pantalla-juego, #pantalla-final {
+  flex: 1 1 0;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.5vh;
 }
 
 .zona-pregunta {
@@ -68,8 +82,9 @@ body {
 .media img { transition: filter 0.4s; }
 
 .pregunta {
-  font-size: 1.3rem;
-  line-height: 1.3;
+  flex: 0 0 auto;
+  font-size: clamp(1rem, 2.8vh, 1.4rem);
+  line-height: 1.25;
   margin: 0;
   text-align: center;
   white-space: pre-line;
@@ -81,16 +96,18 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 10px;
+  gap: 1.2vh 2.5vw;
 }
 
 .opciones .opcion { height: 100%; min-height: 0; }
 
 .opcion {
   width: 100%;
-  min-height: 60px;
-  padding: 14px;
-  font-size: 1.15rem;
+  min-height: 44px;
+  padding: 1vh 2vw;
+  font-size: clamp(0.9rem, 2.4vh, 1.15rem);
+  overflow: hidden;
+  overflow-wrap: anywhere;
   font-weight: 600;
   color: #fff;
   background: #4a62e8;
@@ -106,35 +123,61 @@ body {
 .opcion.correcta { background: #1fa958; }
 .opcion.incorrecta { background: #d33a3a; }
 
-.resultado { font-size: 1.3rem; text-align: center; }
+.resultado { font-size: clamp(1rem, 2.6vh, 1.3rem); text-align: center; margin: 0; }
 
-.form { display: grid; gap: 12px; margin: 16px 0; }
+.form { display: grid; gap: 1.2vh; margin: 0; }
+.form .opcion { height: 7vh; }
 
 .form input {
-  min-height: 60px;
-  padding: 12px;
-  font-size: 1.15rem;
+  height: 7vh;
+  min-height: 44px;
+  padding: 0 12px;
+  font-size: clamp(0.9rem, 2.4vh, 1.15rem);
   border-radius: 14px;
   border: 0;
   text-align: center;
 }
 
-.estado { text-align: center; opacity: 0.85; }
+.estado { text-align: center; opacity: 0.85; margin: 0; }
+
+#ranking-box {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+
+#ranking-box h2 { margin: 0; font-size: clamp(1rem, 2.8vh, 1.4rem); }
+#ranking-box .opcion { flex: 0 0 7vh; }
 
 .ranking {
-  padding-left: 0;
-  list-style-position: inside;
-  font-size: 1.1rem;
+  flex: 1 1 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: pos;
+  display: grid;
+  grid-template-rows: repeat(10, 1fr);
+  gap: 0.6vh;
+  font-size: clamp(0.8rem, 2.2vh, 1.05rem);
 }
 
 .ranking li {
+  counter-increment: pos;
   display: flex;
-  justify-content: space-between;
-  padding: 10px 14px;
-  margin-bottom: 6px;
+  align-items: center;
+  gap: 8px;
+  min-height: 0;
+  padding: 0 12px;
   background: #2d3250;
   border-radius: 10px;
+  overflow: hidden;
 }
 
-h1, h2 { text-align: center; }
+.ranking li::before { content: counter(pos) "."; opacity: 0.7; min-width: 1.6em; }
+.ranking li span:first-child { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+h1 { margin: 0; text-align: center; font-size: clamp(1.2rem, 3.5vh, 1.8rem); }
 

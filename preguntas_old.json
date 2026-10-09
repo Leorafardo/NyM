@@ -1,0 +1,22 @@
+[
+  { "id": 1, "tipo": "video", "media": "media/q01.mp4", "pregunta": "¿De qué anime es este clip?", "opciones": ["Naruto", "Bleach", "One Piece", "Fairy Tail"], "correcta": 2 },
+  { "id": 2, "tipo": "video", "media": "media/q02.mp4", "pregunta": "¿De qué anime es este clip?", "opciones": ["Attack on Titan", "Demon Slayer", "Jujutsu Kaisen", "Fire Force"], "correcta": 1 },
+  { "id": 3, "tipo": "imagen", "media": "media/q03.png", "pregunta": "Escena mítica: ¿de qué anime es?", "opciones": ["Death Note", "Code Geass", "Monster", "Steins;Gate"], "correcta": 0 },
+  { "id": 4, "tipo": "imagen", "media": "media/q04.png", "pregunta": "Escena mítica: ¿de qué anime es?", "opciones": ["Dragon Ball Z", "Hunter x Hunter", "Yu Yu Hakusho", "Saint Seiya"], "correcta": 0 },
+  { "id": 5, "tipo": "imagen", "efecto": "blur", "media": "media/q05.png", "pregunta": "¿Quién es este personaje?", "opciones": ["Goku", "Luffy", "Naruto", "Ichigo"], "correcta": 1 },
+  { "id": 6, "tipo": "imagen", "efecto": "blur", "media": "media/q06.png", "pregunta": "¿Quién es este personaje?", "opciones": ["Levi", "Eren", "Mikasa", "Armin"], "correcta": 0 },
+  { "id": 7, "tipo": "texto", "pregunta": "«Kono sekai wa zankoku da… sorede mo utsukushii»\n¿De qué opening es esta letra?", "opciones": ["Attack on Titan", "Tokyo Ghoul", "Fullmetal Alchemist", "Sword Art Online"], "correcta": 0 },
+  { "id": 8, "tipo": "texto", "pregunta": "«Kimi no kioku no kakera ga… boku no naka de»\n¿Qué anime tiene este opening?", "opciones": ["Your Name", "Tokyo Ghoul", "Death Note", "Naruto"], "correcta": 3 },
+  { "id": 9, "tipo": "audio", "media": "media/q09.mp3", "pregunta": "¿De qué anime es este opening?", "opciones": ["Cowboy Bebop", "Neon Genesis Evangelion", "Bleach", "Samurai Champloo"], "correcta": 1 },
+  { "id": 10, "tipo": "audio", "media": "media/q10.mp3", "pregunta": "¿De qué anime es este opening?", "opciones": ["One Punch Man", "Mob Psycho 100", "My Hero Academia", "Jujutsu Kaisen"], "correcta": 0 },
+  { "id": 11, "tipo": "texto", "pregunta": "¿Cómo se llama el protagonista de Naruto?", "opciones": ["Sasuke Uchiha", "Naruto Uzumaki", "Kakashi Hatake", "Itachi Uchiha"], "correcta": 1 },
+  { "id": 12, "tipo": "texto", "pregunta": "¿Cuántas Dragon Balls hay que reunir para invocar a Shenron?", "opciones": ["5", "6", "7", "9"], "correcta": 2 },
+  { "id": 13, "tipo": "texto", "pregunta": "¿Qué estudio animó Spirited Away (El viaje de Chihiro)?", "opciones": ["Madhouse", "Studio Ghibli", "Bones", "MAPPA"], "correcta": 1 },
+  { "id": 14, "tipo": "imagen", "efecto": "silueta", "media": "media/q14.png", "pregunta": "¿Quién es esta silueta?", "opciones": ["Vegeta", "Goku", "Piccolo", "Gohan"], "correcta": 1 },
+  { "id": 15, "tipo": "imagen", "efecto": "silueta", "media": "media/q15.png", "pregunta": "¿Quién es esta silueta?", "opciones": ["Pikachu", "Eevee", "Jigglypuff", "Psyduck"], "correcta": 0 },
+  { "id": 16, "tipo": "texto", "pregunta": "🏴‍☠️ 👒 🍖 🌊\n¿Qué serie es?", "opciones": ["Fairy Tail", "One Piece", "Bleach", "Black Clover"], "correcta": 1 },
+  { "id": 17, "tipo": "texto", "pregunta": "📓 ✍️ 💀 🍎\n¿Qué serie es?", "opciones": ["Death Note", "Tokyo Ghoul", "Parasyte", "Bleach"], "correcta": 0 },
+  { "id": 18, "tipo": "texto", "pregunta": "🧱 ⚔️ 👹 🦅\n¿Qué serie es?", "opciones": ["Berserk", "Attack on Titan", "Vinland Saga", "Claymore"], "correcta": 1 },
+  { "id": 19, "tipo": "texto", "pregunta": "¿Qué poder usa Tanjiro en Demon Slayer?", "opciones": ["Respiración del Agua", "Chakra", "Haki", "Alquimia"], "correcta": 0 },
+  { "id": 20, "tipo": "texto", "pregunta": "¿Cómo se llama el cuaderno que mata en Death Note?", "opciones": ["Death Note", "Book of Shadows", "Kira Book", "Shinigami Log"], "correcta": 0 }
+]

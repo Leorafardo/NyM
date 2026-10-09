@@ -24,21 +24,12 @@ async function init() {
     const res = await fetch('./preguntas.json');
     if (!res.ok) throw new Error(res.status);
     const todas = await res.json();
-    preguntas = mezclar(todas).slice(0, MAX_PREGUNTAS);
+    preguntas = todas.slice(0, MAX_PREGUNTAS);
     $('cargando').hidden = true;
     empezar();
   } catch (e) {
     $('cargando').textContent = 'No se pudieron cargar las preguntas.';
   }
-}
-
-function mezclar(arr) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
 }
 
 function empezar() {
@@ -213,9 +204,6 @@ $('form-nombre').addEventListener('submit', async (e) => {
 });
 
 botones.forEach((b, i) => b.addEventListener('click', () => responder(i)));
-$('reiniciar').addEventListener('click', () => {
-  preguntas = mezclar(preguntas);
-  empezar();
-});
+$('reiniciar').addEventListener('click', empezar);
 
 init();
