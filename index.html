@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section id="pantalla-juego" hidden>
+      <header class="barra">
+        <span>Pregunta <b id="num-pregunta">0</b>/<b id="total-preguntas">0</b></span>
+        <span>⏱ <b id="tiempo">0</b>s</span>
+        <span>Puntos: <b id="puntos">0</b></span>
+      </header>
+      <h1 id="pregunta" class="pregunta"></h1>
+      <div id="opciones" class="opciones">
+        <button class="opcion" type="button"></button>
+        <button class="opcion" type="button"></button>
+        <button class="opcion" type="button"></button>
+        <button class="opcion" type="button"></button>
+      </div>
+    </section>
+
+    <section id="pantalla-final" hidden>
+      <h1>¡Fin del juego!</h1>
+      <p class="resultado">Has conseguido <b id="puntos-finales">0</b> puntos</p>
+      <form id="form-nombre" class="form">
+        <input id="nombre" type="text" maxlength="20" placeholder="Tu nombre" required autocomplete="nickname">
+        <button type="submit" class="opcion">Guardar puntuación</button>
+      </form>
+      <p id="estado" class="estado"></p>
+      <div id="ranking-box" hidden>
+        <h2>🏆 Top 10</h2>
+        <ol id="ranking" class="ranking"></ol>
+        <button id="reiniciar" type="button" class="opcion">Jugar otra vez</button>
+      </div>
+    </section>
+
+    <p id="cargando" class="estado">Cargando preguntas…</p>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
