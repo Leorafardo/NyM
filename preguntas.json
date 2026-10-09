@@ -1,13 +1,13 @@
 [
   { "id": 1, "tipo": "texto", "pregunta": "¿De qué serie es el opening llamado “The World”?", "opciones": ["The Promised Neverland", "Death Note", "One Punch Man", "Ataque a los Titanes"], "correcta": 1 },
   { "id": 2, "tipo": "texto", "pregunta": "¿Qué serie se llama así en japonés? Kusuriya no Hitorigoto", "opciones": ["Kotaro vive solo", "Placeholder", "Los Diarios de la Boticaria", "Placeholder"], "correcta": 2 },
-  { "id": 3, "tipo": "imagen", "media": "media/q03.jpg", "pregunta": "¿De qué series es este personaje?", "opciones": ["Saint Seiya", "Kimetsu no yaiba", "Evangelion", "Solo Leveling"], "correcta": 3 },
+  { "id": 3, "tipo": "imagen", "efecto": "blur", "media": "media/q03.jpg", "pregunta": "¿De qué serie es este personaje?", "opciones": ["Saint Seiya", "Kimetsu no yaiba", "Evangelion", "Solo Leveling"], "correcta": 3 },
 
   { "id": 4, "tipo": "video", "media": "media/q02.mp4", "pregunta": "¿De qué anime es este clip?", "opciones": ["Attack on Titan", "Demon Slayer", "Jujutsu Kaisen", "Fire Force"], "correcta": 1 },
   { "id": 5, "tipo": "video", "media": "media/q01.mp4", "pregunta": "¿De qué anime es este clip?", "opciones": ["Naruto", "Bleach", "One Piece", "Fairy Tail"], "correcta": 2 },
+  { "id": 6, "tipo": "imagen", "media": "media/q05.png", "pregunta": "¿De qué serie es este personaje?", "opciones": ["Saint Seiya", "Kimetsu no yaiba", "Evangelion", "Solo Leveling"], "correcta": 3 },
 
-  { "id": 6, "tipo": "imagen", "media": "media/q04.png", "pregunta": "Escena mítica: ¿de qué anime es?", "opciones": ["Dragon Ball Z", "Hunter x Hunter", "Yu Yu Hakusho", "Saint Seiya"], "correcta": 0 },
-  { "id": 7, "tipo": "imagen", "efecto": "blur", "media": "media/q05.png", "pregunta": "¿Quién es este personaje?", "opciones": ["Goku", "Luffy", "Naruto", "Ichigo"], "correcta": 1 },
+  { "id": 7, "tipo": "imagen", "media": "media/q04.png", "pregunta": "Escena mítica: ¿de qué anime es?", "opciones": ["Dragon Ball Z", "Hunter x Hunter", "Yu Yu Hakusho", "Saint Seiya"], "correcta": 0 },
   { "id": 8, "tipo": "imagen", "efecto": "blur", "media": "media/q06.png", "pregunta": "¿Quién es este personaje?", "opciones": ["Levi", "Eren", "Mikasa", "Armin"], "correcta": 0 },
   { "id": 9, "tipo": "texto", "pregunta": "«Kono sekai wa zankoku da… sorede mo utsukushii»\n¿De qué opening es esta letra?", "opciones": ["Attack on Titan", "Tokyo Ghoul", "Fullmetal Alchemist", "Sword Art Online"], "correcta": 0 },
   { "id": 10, "tipo": "texto", "pregunta": "«Kimi no kioku no kakera ga… boku no naka de»\n¿Qué anime tiene este opening?", "opciones": ["Your Name", "Tokyo Ghoul", "Death Note", "Naruto"], "correcta": 3 },
