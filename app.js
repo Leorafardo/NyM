@@ -4,19 +4,21 @@ const JSONBIN_API_KEY = '$2a$10$EbeObdWYgrqfGyQw.2zVBu90jubK1/Kt75F04Dbmf2GpX3hr
 const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
 
 const MAX_PREGUNTAS = 20;
-const PUNTOS_BASE = 100;
-const PUNTOS_BONUS_MAX = 50; // bonus por rapidez
 const SEGUNDOS_POR_PREGUNTA = 15;
 const PAUSA_FEEDBACK_MS = 900;
+const INTERVALO_EMOJI_MS = 1000;
 
 const $ = (id) => document.getElementById(id);
 const botones = [...document.querySelectorAll('#opciones .opcion')];
 
 let preguntas = [];
 let indice = 0;
-let puntos = 0;
+let aciertos = 0;
 let restante = 0;
 let timer = null;
+let emojiTimer = null;
+let inicioPregunta = 0;
+let tiempoTotalMs = 0;
 let bloqueado = false;
 
 async function init() {
@@ -34,7 +36,8 @@ async function init() {
 
 function empezar() {
   indice = 0;
-  puntos = 0;
+  aciertos = 0;
+  tiempoTotalMs = 0;
   $('pantalla-final').hidden = true;
   $('pantalla-juego').hidden = false;
   $('total-preguntas').textContent = preguntas.length;
@@ -43,10 +46,13 @@ function empezar() {
 
 function mostrarPregunta() {
   const p = preguntas[indice];
+  clearInterval(emojiTimer);
+  emojiTimer = null;
   bloqueado = false;
   $('num-pregunta').textContent = indice + 1;
-  $('puntos').textContent = puntos;
+  $('aciertos').textContent = aciertos;
   $('pregunta').textContent = p.pregunta;
+  mostrarEmojis(p.emojis);
   renderMedia(p);
   botones.forEach((b, i) => {
     b.textContent = p.opciones[i] ?? '';
@@ -55,6 +61,37 @@ function mostrarPregunta() {
     b.className = 'opcion';
   });
   iniciarTemporizador();
+}
+
+function mostrarEmojis(emojis) {
+  const cont = $('emojis');
+  cont.replaceChildren();
+  cont.hidden = !Array.isArray(emojis) || emojis.length === 0;
+  if (cont.hidden) return;
+
+  const pistas = emojis.map((emoji) => {
+    const span = document.createElement('span');
+    span.textContent = emoji;
+    span.hidden = true;
+    cont.append(span);
+    return span;
+  });
+  let siguiente = 0;
+
+  const revelarSiguiente = () => {
+    const pista = pistas[siguiente++];
+    pista.hidden = false;
+    pista.classList.add('visible');
+    if (siguiente === pistas.length) {
+      clearInterval(emojiTimer);
+      emojiTimer = null;
+    }
+  };
+
+  revelarSiguiente();
+  if (pistas.length > 1) {
+    emojiTimer = setInterval(revelarSiguiente, INTERVALO_EMOJI_MS);
+  }
 }
 
 // tipo: texto | imagen | video | audio. efecto (solo imagen): blur | silueta
@@ -100,6 +137,7 @@ function revelarMedia() {
 function iniciarTemporizador() {
   clearInterval(timer);
   restante = SEGUNDOS_POR_PREGUNTA;
+  inicioPregunta = Date.now();
   $('tiempo').textContent = restante;
   actualizarBlur();
   timer = setInterval(() => {
@@ -114,11 +152,14 @@ function responder(elegida) {
   if (bloqueado) return;
   bloqueado = true;
   clearInterval(timer);
+  clearInterval(emojiTimer);
+  emojiTimer = null;
+  tiempoTotalMs += Math.min(Date.now() - inicioPregunta, SEGUNDOS_POR_PREGUNTA * 1000);
   revelarMedia();
   const correcta = preguntas[indice].correcta;
   if (elegida === correcta) {
-    puntos += PUNTOS_BASE + Math.round((restante / SEGUNDOS_POR_PREGUNTA) * PUNTOS_BONUS_MAX);
-    $('puntos').textContent = puntos;
+    aciertos++;
+    $('aciertos').textContent = aciertos;
   }
   botones.forEach((b, i) => {
     b.disabled = true;
@@ -137,7 +178,7 @@ function siguiente() {
 function terminar() {
   $('pantalla-juego').hidden = true;
   $('pantalla-final').hidden = false;
-  $('puntos-finales').textContent = puntos;
+  $('aciertos-finales').textContent = aciertos;
   $('form-nombre').hidden = false;
   $('ranking-box').hidden = true;
   $('estado').textContent = '';
@@ -157,9 +198,9 @@ async function obtenerRanking() {
   return Array.isArray(data.record?.ranking) ? data.record.ranking : [];
 }
 
-async function guardarPuntuacion(nombre, puntos) {
+async function guardarPuntuacion(nombre, aciertos, tiempoMs) {
   const ranking = await obtenerRanking();
-  ranking.push({ nombre, puntos });
+  ranking.push({ nombre, aciertos, tiempoMs });
   const res = await fetch(JSONBIN_URL, {
     method: 'PUT',
     headers: cabeceras,
@@ -169,15 +210,21 @@ async function guardarPuntuacion(nombre, puntos) {
 }
 
 function mostrarRanking(ranking) {
-  const top = [...ranking].sort((a, b) => b.puntos - a.puntos).slice(0, 10);
+  const top = ranking
+    .filter((r) => Number.isFinite(r.aciertos) && Number.isFinite(r.tiempoMs))
+    .sort((a, b) => b.aciertos - a.aciertos || a.tiempoMs - b.tiempoMs)
+    .slice(0, 10);
   const ol = $('ranking');
   ol.replaceChildren(...top.map((r) => {
     const li = document.createElement('li');
     const n = document.createElement('span');
-    const p = document.createElement('span');
+    const a = document.createElement('span');
+    const t = document.createElement('span');
     n.textContent = r.nombre;
-    p.textContent = r.puntos;
-    li.append(n, p);
+    a.textContent = `${r.aciertos} aciertos`;
+    const segundos = Math.floor(r.tiempoMs / 1000);
+    t.textContent = `${Math.floor(segundos / 60)}:${String(segundos % 60).padStart(2, '0')}`;
+    li.append(n, a, t);
     return li;
   }));
   $('ranking-box').hidden = false;
@@ -191,7 +238,7 @@ $('form-nombre').addEventListener('submit', async (e) => {
   btn.disabled = true;
   $('estado').textContent = 'Guardando…';
   try {
-    await guardarPuntuacion(nombre, puntos);
+    await guardarPuntuacion(nombre, aciertos, tiempoTotalMs);
     const ranking = await obtenerRanking();
     $('form-nombre').hidden = true;
     $('estado').textContent = '';
