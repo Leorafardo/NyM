@@ -128,12 +128,23 @@ body {
   overflow-wrap: anywhere;
   font-weight: 600;
   color: #fff;
-  background: #4a62e8;
   border: 0;
   border-radius: 14px;
   cursor: pointer;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
+}
+.opcion1{
+  background: #E4CDDD;
+}
+.opcion2{
+  background: #032A43 ;
+}
+.opcion3{
+  background: #726CA8;
+}
+.opcion4{
+  background: #6ABDDE;
 }
 
 .opcion:active:not(:disabled) { transform: scale(0.98); }
