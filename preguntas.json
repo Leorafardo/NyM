@@ -78,7 +78,7 @@
   { "id": 12, "tipo": "texto",
     "pregunta": "Adivina el anime con estos emojis:\n🌊 👑 ⛵ 👒 🏴‍☠️",
     "opciones": ["Cuentos de Terramar", "Ponyo", "Fairy Tail", "One Piece"],
-    "correcta": 1
+    "correcta": 3
   },
   { "id": 13,
     "tipo": "video",
