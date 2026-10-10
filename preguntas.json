@@ -28,7 +28,7 @@
   },
   { "id": 5,
     "tipo": "audio",
-    "media": "media/q5.mp3",
+    "media": "media/q05.mp3",
     "pregunta": "¿A qué anime pertenece esta canción?",
     "opciones": ["Tokyo Ghoul", "My Hero Academia", "Code Geass", "Erased"],
     "correcta": 0
