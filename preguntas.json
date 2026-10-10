@@ -27,11 +27,13 @@
     "correcta": 2
   },
   { "id": 5,
-    "tipo": "texto",
-    "pregunta": "¿De qué anime es este opening?\nTsuyoku nareru riyū wo shitta\nBoku wo tsurete susume",
-    "opciones": ["Demon Slayer", "Jujutsu Kaisen", "Fullmetal Alchemist", "HunterxHunter"],
+    "tipo": "audio",
+    "media": "media/q5.ogg",
+    "pregunta": "¿A qué anime pertenece esta canción?",
+    "opciones": ["Tokyo Ghoul", "My Hero Academia", "Code Geass", "Erased"],
     "correcta": 0
   },
+  
   { "id": 6,
     "tipo": "texto",
     "pregunta": "¿Cúal es este pokemon?",
@@ -60,12 +62,13 @@
     "correcta": 2
   },
   { "id": 10,
-    "tipo": "imagen",
-    "media": "media/q10.png",
-    "pregunta": "¿A qué anime pertenece este adorable gatito?",
-    "opciones": ["Nicky la Aprendiz de Bruja", "Haru en el Reino de los Gatos", "Suzume", "El Gato y el Dragón"],
-    "correcta": 2
+    "tipo": "audio",
+    "media": "media/q10.ogg",
+    "pregunta": "¿A qué anime pertenece esta canción?",
+    "opciones": ["Chainsaw Man", "Gintama", "Re:Zero", "Oshi no Ko"],
+    "correcta": 3
   },
+  
   { "id": 11,
     "tipo": "texto",
     "pregunta": "¿Quién escribió Ataque a los Titanes?",
@@ -90,45 +93,46 @@
     "opciones": ["Kiyomi Takada", "Azuki Miho", "Miyoshi Kaya", "Naomi Misora"],
     "correcta": 3
   },
+  
   { "id": 15,
-    "tipo": "imagen",
-    "media": "media/q15.png",
-    "pregunta": "¿A qué anime pertenece esta imagen?",
-    "opciones": ["One Punch Man", "Naruto", "One Piece", "Dragon Ball Z"],
-    "correcta": 3
+    "tipo": "audio",
+    "media": "media/q15.mp3",
+    "pregunta": "¿A qué anime pertenece esta canción?",
+    "opciones": ["Jojo’s Bizarre Adventure", "Naruto", "Your Lie in April", "Mob Psycho 100"],
+    "correcta": 1
   },
   { "id": 16,
     "tipo": "texto",
-    "pregunta": "¿A qué anime pertenece esta canción?",
-    "opciones": ["Tokyo Ghoul", "My Hero Academia", "Code Geass", "Erased"],
+    "pregunta": "¿De qué anime es este opening?\nTsuyoku nareru riyū wo shitta\nBoku wo tsurete susume",
+    "opciones": ["Demon Slayer", "Jujutsu Kaisen", "Fullmetal Alchemist", "HunterxHunter"],
     "correcta": 0
   },
   { "id": 17,
     "tipo": "audio",
     "media": "media/q17.mp3",
     "pregunta": "¿A qué anime pertenece esta canción?",
-    "opciones": ["SpyxFamily", "Vinland Saga", "La buena", "Solo Leveling"],
+    "opciones": ["SpyxFamily", "Vinland Saga", "Sword Art Online", "Solo Leveling"],
     "correcta": 2
   },
   { "id": 18,
-    "tipo": "audio",
-    "media": "media/q09.mp3",
-    "pregunta": "¿A qué anime pertenece esta canción?",
-    "opciones": ["Steins;Gate", "Frieren", "Berserk", "La buena"],
-    "correcta": 3
+    "tipo": "imagen",
+    "media": "media/q18.png",
+    "pregunta": "¿A qué anime pertenece este adorable gatito?",
+    "opciones": ["Nicky la Aprendiz de Bruja", "Haru en el Reino de los Gatos", "Suzume", "El Gato y el Dragón"],
+    "correcta": 2
   },
   { "id": 19,
-    "tipo": "audio",
-    "media": "media/q10.mp3",
-    "pregunta": "¿A qué anime pertenece esta canción?",
-    "opciones": ["Jojo’s Bizarre Adventure", "La buena", "Your Lie in April", "Mob Psycho 100"],
-    "correcta": 1
+    "tipo": "imagen",
+    "media": "media/q19.png",
+    "pregunta": "¿A qué anime pertenece esta imagen?",
+    "opciones": ["One Punch Man", "Naruto", "One Piece", "Dragon Ball Z"],
+    "correcta": 3
   },
   { "id": 20,
     "tipo": "audio",
-    "media": "media/q10.mp3",
+    "media": "media/q20.ogg",
     "pregunta": "¿A qué anime pertenece esta canción?",
-    "opciones": ["Chainsaw Man", "Gintama", "Re:Zero", "La buena"],
+    "opciones": ["Steins;Gate", "Frieren", "Berserk", "Cowboy Bebop"],
     "correcta": 3
   }
 ]

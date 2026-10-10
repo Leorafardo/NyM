@@ -4,7 +4,7 @@ const JSONBIN_API_KEY = '$2a$10$EbeObdWYgrqfGyQw.2zVBu90jubK1/Kt75F04Dbmf2GpX3hr
 const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
 
 const MAX_PREGUNTAS = 20;
-const SEGUNDOS_POR_PREGUNTA = 15;
+const SEGUNDOS_POR_PREGUNTA = 20;
 const PAUSA_FEEDBACK_MS = 900;
 const INTERVALO_EMOJI_MS = 1000;
 
