@@ -28,7 +28,7 @@
   },
   { "id": 5,
     "tipo": "audio",
-    "media": "media/q5.ogg",
+    "media": "media/q5.mp3",
     "pregunta": "¿A qué anime pertenece esta canción?",
     "opciones": ["Tokyo Ghoul", "My Hero Academia", "Code Geass", "Erased"],
     "correcta": 0
@@ -36,8 +36,8 @@
   
   { "id": 6,
     "tipo": "texto",
-    "pregunta": "¿Cúal es este pokemon?",
-    "opciones": ["Demon Slayer", "Jujutsu Kaisen", "Fullmetal Alchemist", "HunterxHunter"],
+    "pregunta": "¿Qué pokemon es el número 357 de la Pokedex?",
+    "opciones": ["Tropius", "Salazzle", "Munna", "Dewong"],
     "correcta": 0
   },
   { "id": 7,
@@ -57,13 +57,13 @@
   { "id": 9,
     "tipo": "imagen",
     "media": "media/q09.jpg",
-    "pregunta": "¿De qué anime es este póster?",
+    "pregunta": "¿A qué anime pertenece este póster?",
     "opciones": ["Susurros del Corazón", "El Viento se Levanta", "Nausicaä del Valle del Viento", "Cuentos de Terramar"],
     "correcta": 2
   },
   { "id": 10,
     "tipo": "audio",
-    "media": "media/q10.ogg",
+    "media": "media/q10.mp3",
     "pregunta": "¿A qué anime pertenece esta canción?",
     "opciones": ["Chainsaw Man", "Gintama", "Re:Zero", "Oshi no Ko"],
     "correcta": 3
@@ -82,10 +82,10 @@
   },
   { "id": 13,
     "tipo": "video",
-    "media": "media/q02.mp4",
+    "media": "media/q13.mp4",
     "pregunta": "¿A qué anime pertenece esta escena?",
     "opciones": ["Haikyuu!!", "Blue Lock", "Kuroko’s Basketball", "Oliver y Benji"],
-    "correcta": 1
+    "correcta": 0
   },
   { "id": 14,
     "tipo": "texto",
@@ -130,7 +130,7 @@
   },
   { "id": 20,
     "tipo": "audio",
-    "media": "media/q20.ogg",
+    "media": "media/q20.mp3",
     "pregunta": "¿A qué anime pertenece esta canción?",
     "opciones": ["Steins;Gate", "Frieren", "Berserk", "Cowboy Bebop"],
     "correcta": 3
